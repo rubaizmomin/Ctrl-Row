@@ -3,7 +3,6 @@ package com.rubaizmomin.CsvSuiteRunner.actions;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.execution.process.OSProcessHandler;
-import com.intellij.execution.process.ProcessAdapter;
 import com.intellij.execution.process.ProcessEvent;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
@@ -15,8 +14,12 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.xml.XmlFile;
 import org.jetbrains.annotations.NotNull;
+import com.intellij.execution.process.ProcessListener;
+import com.intellij.openapi.diagnostic.Logger;
 
 public class HelloWorldAction extends AnAction {
+
+    private static final Logger LOG = Logger.getInstance(HelloWorldAction.class);
 
     @Override
     public @NotNull ActionUpdateThread getActionUpdateThread() {
@@ -136,7 +139,7 @@ public class HelloWorldAction extends AnAction {
             processHandler.startNotify();
 
         } catch (ExecutionException ex) {
-            ex.printStackTrace();
+            LOG.error("Failed to start Maven test execution", ex);
         }
     }
 
@@ -144,7 +147,8 @@ public class HelloWorldAction extends AnAction {
         OSProcessHandler processHandler =
                 new OSProcessHandler(command);
 
-        processHandler.addProcessListener(new ProcessAdapter() {
+        processHandler.addProcessListener(new ProcessListener() {
+
             @Override
             public void onTextAvailable(
                     @NotNull ProcessEvent event,
@@ -154,12 +158,15 @@ public class HelloWorldAction extends AnAction {
             }
 
             @Override
-            public void processTerminated(@NotNull ProcessEvent event) {
+            public void processTerminated(
+                    @NotNull ProcessEvent event
+            ) {
                 System.out.println(
                         "Process finished with exit code: "
                                 + event.getExitCode()
                 );
             }
+
         });
         return processHandler;
     }

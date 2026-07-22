@@ -11,13 +11,12 @@
     <idea-version since-build="251"/>
 
     <depends>com.intellij.modules.platform</depends>
-    <depends>org.jetbrains.idea.maven</depends>
 
     <actions>
         <action
                 id="HelloWorld"
                 class="com.rubaizmomin.CsvSuiteRunner.actions.HelloWorldAction"
-                text="Run with Ctrl+Row">
+        >
 
             <add-to-group
                     group-id="ProjectViewPopupMenu"
@@ -25,5 +24,6 @@
 
         </action>
     </actions>
+    <resource-bundle>messages.MyMessageBundle</resource-bundle>
 
 </idea-plugin>
