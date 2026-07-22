@@ -1,4 +1,4 @@
-package com.example.CsvSuiteRunner.actions;
+package com.rubaizmomin.CsvSuiteRunner.actions;
 
 import com.intellij.openapi.ui.DialogWrapper;
 import org.jetbrains.annotations.Nullable;

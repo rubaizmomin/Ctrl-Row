@@ -16,7 +16,7 @@
     <actions>
         <action
                 id="HelloWorld"
-                class="com.example.CsvSuiteRunner.actions.HelloWorldAction"
+                class="com.rubaizmomin.CsvSuiteRunner.actions.HelloWorldAction"
                 text="Run with Ctrl+Row">
 
             <add-to-group
