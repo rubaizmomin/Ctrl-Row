@@ -1,0 +1,29 @@
+<idea-plugin>
+
+    <id>com.example.csvsuiterunner</id>
+    <name>CSV Suite Runner</name>
+    <vendor email="rubaizmomin@gmail.com">Rubaiz Momin</vendor>
+    <description>
+        <![CDATA[
+        Run selected TestNG CSV data rows directly from IntelliJ IDEA.
+        ]]>
+    </description>
+    <idea-version since-build="251"/>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.idea.maven</depends>
+
+    <actions>
+        <action
+                id="HelloWorld"
+                class="com.example.CsvSuiteRunner.actions.HelloWorldAction"
+                text="Run with Ctrl+Row">
+
+            <add-to-group
+                    group-id="ProjectViewPopupMenu"
+                    anchor="last"/>
+
+        </action>
+    </actions>
+
+</idea-plugin>
