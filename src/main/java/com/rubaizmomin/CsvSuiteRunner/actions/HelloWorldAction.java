@@ -120,7 +120,7 @@ public class HelloWorldAction extends AnAction {
 
 
         command.addParameters(
-                "-Dtestng.xml=" + testngPath
+                "-Dtestsuite.xml=" + testngPath
         );
 
 
