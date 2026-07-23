@@ -1,7 +1,7 @@
 <idea-plugin>
 
     <id>com.rubaizmomin.csvsuiterunner</id>
-    <name>CSV Suite Runner</name>
+    <name>Ctrl + Row</name>
     <vendor email="rubaizmomin@gmail.com">Rubaiz Momin</vendor>
     <description>
         <![CDATA[
